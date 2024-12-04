@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+        }
+
+        .parent {
+            position: relative;
+            display: flex;
+
+            margin: auto;
+            border: 2px solid #333;
+
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            height: 133vh;
+
+        }
+
+        .trackRecord {
+            flex: 1;
+            margin-right: 20px;
+            color: #333;
+            font-weight: bold;
+            font-size: 1rem;
+            overflow-y: auto;
+            padding: 10px;
+            border-right: 2px solid #ddd;
+            height: 100%;
+        }
+
+        .container {
+            height: 323px;
+            display: grid;
+            grid-template-columns: repeat(10, 32.5px);
+            grid-template-rows: repeat(10, 32.5px);
+            background: url('snake.png');
+            border: 2px solid #000;
+            position: relative;
+            margin: 0 20px;
+
+        }
+
+        .div {
+            position: relative;
+            box-sizing: border-box;
+
+
+        }
+
+        .rad {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin: auto;
+            background-color: rgb(238, 10, 120);
+            z-index: 200;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            text-align: center;
+            font-weight: bolder;
+            font-size: 15px;
+        }
+
+        .box .dice button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .box .dice button:hover {
+            background-color: #0056b3;
+        }
+
+        #action {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        #action:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="trackRecord">
+            <h3>Game History</h3>
+
+        </div>
+        <div class="container">
+            <div class="div sqaure100">
+
+            </div>
+            <div class="div sqaure99"></div>
+            <div class="div sqaure98"></div>
+            <div class="div sqaure97"></div>
+            <div class="div sqaure96"></div>
+            <div class="div sqaure95"></div>
+            <div class="div sqaure94"></div>
+            <div class="div sqaure93"></div>
+            <div class="div sqaure92"></div>
+            <div class="div sqaure91"></div>
+            <div class="div sqaure81"></div>
+            <div class="div sqaure82"></div>
+            <div class="div sqaure83"></div>
+            <div class="div sqaure84"></div>
+            <div class="div sqaure85"></div>
+            <div class="div sqaure86"></div>
+            <div class="div sqaure87"></div>
+            <div class="div sqaure88"></div>
+            <div class="div sqaure89"></div>
+            <div class="div sqaure90"></div>
+            <div class="div sqaure80"></div>
+            <div class="div sqaure79"></div>
+            <div class="div sqaure78"></div>
+            <div class="div sqaure77"></div>
+            <div class="div sqaure76"></div>
+            <div class="div sqaure75"></div>
+            <div class="div sqaure74"></div>
+            <div class="div sqaure73"></div>
+            <div class="div sqaure72"></div>
+            <div class="div sqaure71"></div>
+            <div class="div sqaure61"></div>
+            <div class="div sqaure62"></div>
+            <div class="div sqaure63"></div>
+            <div class="div sqaure64"></div>
+            <div class="div sqaure65"></div>
+            <div class="div sqaure66"></div>
+            <div class="div sqaure67"></div>
+            <div class="div sqaure68"></div>
+            <div class="div sqaure69"></div>
+            <div class="div sqaure70"></div>
+            <div class="div sqaure60"></div>
+            <div class="div sqaure59"></div>
+            <div class="div sqaure58"></div>
+            <div class="div sqaure57"></div>
+            <div class="div sqaure56"></div>
+            <div class="div sqaure55"></div>
+            <div class="div sqaure54"></div>
+            <div class="div sqaure53"></div>
+            <div class="div sqaure52"></div>
+            <div class="div sqaure51"></div>
+            <div class="div sqaure41"></div>
+            <div class="div sqaure42"></div>
+            <div class="div sqaure43"></div>
+            <div class="div sqaure44"></div>
+            <div class="div sqaure45"></div>
+            <div class="div sqaure46"></div>
+            <div class="div sqaure47"></div>
+            <div class="div sqaure48"></div>
+            <div class="div sqaure49"></div>
+            <div class="div sqaure50"></div>
+            <div class="div sqaure40"></div>
+            <div class="div sqaure39"></div>
+            <div class="div sqaure38"></div>
+            <div class="div sqaure37"></div>
+            <div class="div sqaure36"></div>
+            <div class="div sqaure35"></div>
+            <div class="div sqaure34"></div>
+            <div class="div sqaure33"></div>
+            <div class="div sqaure32"></div>
+            <div class="div sqaure31"></div>
+            <div class="div sqaure21"></div>
+            <div class="div sqaure22"></div>
+            <div class="div sqaure23"></div>
+            <div class="div sqaure24"></div>
+            <div class="div sqaure25"></div>
+            <div class="div sqaure26"></div>
+            <div class="div sqaure27"></div>
+            <div class="div sqaure28"></div>
+            <div class="div sqaure29"></div>
+            <div class="div sqaure30"></div>
+            <div class="div sqaure20"></div>
+            <div class="div sqaure19"></div>
+            <div class="div sqaure18"></div>
+            <div class="div sqaure17"></div>
+            <div class="div sqaure16"></div>
+            <div class="div sqaure15"></div>
+            <div class="div sqaure14"></div>
+            <div class="div sqaure13"></div>
+            <div class="div sqaure12"></div>
+            <div class="div sqaure11"></div>
+            <div class="div sqaure1"></div>
+            <div class="div sqaure2"></div>
+            <div class="div sqaure3"></div>
+            <div class="div sqaure4"></div>
+            <div class="div sqaure5"></div>
+            <div class="div sqaure6"></div>
+            <div class="div sqaure7"></div>
+            <div class="div sqaure8"></div>
+            <div class="div sqaure9"></div>
+            <div class="div sqaure10">
+
+
+            </div>
+
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="" alt="" height="100px" width="100px">
+            </div>
+            <div class="dice">
+                <button onclick="roll1()">Player1</button>
+                <button onclick="roll2()">Player2</button>
+                <h1 id="result">
+                </h1>
+            </div>
+        </div>
+    </div>
+    <button id="action">
+        Download csv
+    </button>
+
+    <script>
+        const array = []
+        document.querySelector('img').setAttribute('src', `Dice.gif`)
+        function win() {
+            let w = new Audio('win.mp3')
+            w.play()
+        }
+        function shake() {
+            let s = new Audio('shake.mp3')
+            s.play()
+        }
+        function snake() {
+            let r = new Audio('snake.mp3')
+            r.play()
+        }
+        function ladder() {
+            let l = new Audio('ladder.mp3')
+            l.play()
+        }
+
+        let player1 = 0
+        let player2 = 0
+        document.getElementsByTagName('button')[1].style.display = "none"
+        function roll1() {
+            shake()
+            let L = [1, 2, 3, 4, 5, 6]
+            let N = Math.floor(Math.random() * 6)
+            document.querySelector('img').setAttribute("src", `D-${L[N]}.PNG`)
+            if (player1 + L[N] <= 100) {
+                player1 += L[N]
+
+            }
+            if (L[N] == 6) {
+                document.getElementsByTagName('button')[1].style.display = "none"
+                document.getElementsByTagName('button')[0].style.display = "block"
+            } else {
+                document.getElementsByTagName('button')[0].style.display = "none"
+                document.getElementsByTagName('button')[1].style.display = "block"
+            }
+
+            if (player1 == 1) {
+                ladder()
+                document.getElementsByClassName(`square${player1 + 37}`)[0].classList.add('rad')
+                player1 = 38
+                document.getElementsByClassName(`square${player1 - L[N]}`)[0].classList.remove('rad')
+                track1()
+            } else if (player1 == 4) {
+                ladder()
+                document.getElementsByClassName(`square${player1 + 10}`)[0].classList.add('rad')
+                player1 = 14
+                document.getElementsByClassName(`square${player1 - L[N]}`)[0].classList.remove('rad')
+                track1()
+            } else if (player1 == 9) {
+                ladder()
+                document.getElementsByClassName(`square${player1 + 22}`)[0].classList.add('rad')
+                player1 = 31
+                document.getElementsByClassName(`square${player1 - L[N]}`)[0].classList.remove('rad')
+                track1()
+            } else if (player1 == 21) {
+                ladder()
+                document.getElementsByClassName(`square${player1 + 21}`)[0].classList.add('rad')
+                player1 = 42
+                document.getElementsByClassName(`square${player1 - L[N]}`)[0].classList.remove('rad')
+                track1()
+            } else if (player1 == 28) {
+                ladder()
+                document.getElementsByClassName(`square${player1 + 56}`)[0].classList.add('rad')
+                player1 = 84
+                document.getElementsByClassName(`square${player1 - L[N]}`)[0].classList.remove('rad')
+                track1()
+            } else if (player1 == 51) {
+                ladder()
+                document.getElementsByClassName(`square${player1 + 16}`)[0].classList.add('rad')
+                player1 = 67
+                document.getElementsByClassName(`square${player1 - L[N]}`)[0].classList.remove('rad')
+                track1()
+            } else if (player1 == 72) {
+                ladder()
+                document.getElementsByClassName(`square${player1 + 19}`)[0].classList.add('rad')
+                player1 = 91
+                document.getElementsByClassName(`square${player1 - L[N]}`)[0].classList.remove('rad')
+                track1()
+            } else if (player1 == 80) {
+                ladder()
+                document.getElementsByClassName(`square${player1 + 19}`)[0].classList.add('rad')
+                player1 = 99
+                document.getElementsByClassName(`square${player1 - L[N]}`)[0].classList.remove('rad')
+                track1()
+            } else if (player1 == 17) {
+                snake()
+                document.getElementsByClassName(`square${player1 + L[N]} `)[0].classList.remove('rad')
+                player1 = 7
+                document.getElementsByClassName(`square${player1 - 10} `)[0].classList.add('rad')
+                track1()
+            } else if (player1 == 54) {
+                snake()
+                document.getElementsByClassName(`square${player1 + L[N]} `)[0].classList.remove('rad')
+                player1 = 34
+                document.getElementsByClassName(`square${player1 - 20} `)[0].classList.add('rad')
+                track1()
+            } else if (player1 == 62) {
+                snake()
+                document.getElementsByClassName(`square${player1 + L[N]} `)[0].classList.remove('rad')
+                player1 = 19
+                document.getElementsByClassName(`square${player1 - 43} `)[0].classList.add('rad')
+                track1()
+            } else if (player1 == 64) {
+                snake()
+                document.getElementsByClassName(`square${player1 + L[N]} `)[0].classList.remove('rad')
+                player1 = 60
+                document.getElementsByClassName(`square${player1 - 4} `)[0].classList.add('rad')
+                track1()
+            } else if (player1 == 87) {
+                snake()
+                document.getElementsByClassName(`square${player1 + L[N]}`)[0].classList.remove('rad')
+                player1 = 36
+                document.getElementsByClassName(`square${player1 - 51}`)[0].classList.add('rad')
+                track1()
+            } else if (player1 == 93) {
+                snake()
+                document.getElementsByClassName(`square${player1 + L[N]}`)[0].classList.remove('rad')
+                player1 = 73
+                document.getElementsByClassName(`square${player1 - 20}`)[0].classList.add('rad')
+                track1()
+            } else if (player1 == 98) {
+                snake()
+                document.getElementsByClassName(`square${player1 + L[N]}`)[0].classList.remove('rad')
+                player1 = 79
+                document.getElementsByClassName(`square${player1 - 19}`)[0].classList.add('rad')
+                track1()
+            } else if (player1 == 100) {
+                win()
+                document.getElementById('result').innerHTML = 'Player1 Won'
+                document.querySelector('img').setAttribute('src', 'Win.gif')
+                document.getElementsByTagName('button')[1].style.display = "none"
+                document.getElementsByTagName('button')[0].style.display = "none"
+            } else {
+                document.getElementsByClassName(`square${player1 + L[N]}`)[0].classList.add('rad')
+                document.getElementsByClassName(`square${player1}`)[0].classList.remove('rad')
+                track1();
+            }
+
+
+        }
+        function roll2() {
+            shake();
+            let L = [1, 2, 3, 4, 5, 6];
+            let N = Math.floor(Math.random() * 6);
+            document.querySelector('img').setAttribute("src", `D-${L[N]}.PNG`);
+            if (player2 + L[N] <= 100) {
+                player2 += L[N];
+            }
+            if (L[N] == 6) {
+                document.getElementsByTagName('button')[0].style.display = "none";
+                document.getElementsByTagName('button')[1].style.display = "block";
+            } else {
+                document.getElementsByTagName('button')[1].style.display = "none";
+                document.getElementsByTagName('button')[0].style.display = "block";
+            }
+
+
+            if (player2 == 1) {
+                ladder();
+                document.getElementsByClassName(`square${player2 + 37}`)[0].classList.add('rad');
+                player2 = 38;
+                document.getElementsByClassName(`square${player2 - L[N]}`)[0].classList.remove('rad');
+                track2();
+            } else if (player2 == 4) {
+                ladder()
+                document.getElementsByClassName(`square${player2 + 10}`)[0].classList.add('rad')
+                player2 = 14
+                document.getElementsByClassName(`square${player2 - L[N]}`)[0].classList.remove('rad')
+                track2()
+            } else if (player2 == 9) {
+                ladder()
+                document.getElementsByClassName(`square${player2 + 22}`)[0].classList.add('rad')
+                player2 = 31
+                document.getElementsByClassName(`square${player2 - L[N]}`)[0].classList.remove('rad')
+                track2()
+            } else if (player2 == 21) {
+                ladder()
+                document.getElementsByClassName(`square${player2 + 21}`)[0].classList.add('rad')
+                player2 = 42
+                document.getElementsByClassName(`square${player2 - L[N]}`)[0].classList.remove('rad')
+                track2()
+            } else if (player2 == 28) {
+                ladder()
+                document.getElementsByClassName(`square${player2 + 56}`)[0].classList.add('rad')
+                player2 = 84
+                document.getElementsByClassName(`square${player2 - L[N]}`)[0].classList.remove('rad')
+                track2()
+            } else if (player2 == 51) {
+                ladder()
+                document.getElementsByClassName(`square${player2 + 16}`)[0].classList.add('rad')
+                player2 = 67
+                document.getElementsByClassName(`square${player2 - L[N]}`)[0].classList.remove('rad')
+                track2()
+            } else if (player2 == 72) {
+                ladder()
+                document.getElementsByClassName(`square${player2 + 19}`)[0].classList.add('rad')
+                player2 = 91
+                document.getElementsByClassName(`square${player2 - L[N]}`)[0].classList.remove('rad')
+                track2()
+            } else if (player2 == 80) {
+                ladder()
+                document.getElementsByClassName(`square${player2 + 19}`)[0].classList.add('rad')
+                player2 = 99
+                document.getElementsByClassName(`square${player2 - L[N]}`)[0].classList.remove('rad')
+                track2()
+            } else if (player2 == 17) {
+                snake()
+                document.getElementsByClassName(`square${player2 + L[N]} `)[0].classList.remove('rad')
+                player2 = 7
+                document.getElementsByClassName(`square${player2 - 10} `)[0].classList.add('rad')
+                track2()
+            } else if (player2 == 54) {
+                snake()
+                document.getElementsByClassName(`square${player2 + L[N]} `)[0].classList.remove('rad')
+                player2 = 34
+                document.getElementsByClassName(`square${player2 - 20} `)[0].classList.add('rad')
+                track2()
+            } else if (player2 == 62) {
+                snake()
+                document.getElementsByClassName(`square${player2 + L[N]} `)[0].classList.remove('rad')
+                player2 = 19
+                document.getElementsByClassName(`square${player2 - 43} `)[0].classList.add('rad')
+                track2()
+            } else if (player2 == 64) {
+                snake()
+                document.getElementsByClassName(`square${player2 + L[N]} `)[0].classList.remove('rad')
+                player2 = 60
+                document.getElementsByClassName(`square${player2 - 4} `)[0].classList.add('rad')
+                track2()
+            } else if (player2 == 87) {
+                snake()
+                document.getElementsByClassName(`square${player2 + L[N]}`)[0].classList.remove('rad')
+                player2 = 36
+                document.getElementsByClassName(`square${player2 - 51}`)[0].classList.add('rad')
+                track2()
+            } else if (player2 == 93) {
+                snake()
+                document.getElementsByClassName(`square${player2 + L[N]}`)[0].classList.remove('rad')
+                player2 = 73
+                document.getElementsByClassName(`square${player2 - 20}`)[0].classList.add('rad')
+                track2()
+            } else if (player2 == 98) {
+                snake()
+                document.getElementsByClassName(`square${player2 + L[N]}`)[0].classList.remove('rad')
+                player2 = 79
+                document.getElementsByClassName(`square${player2 - 19}`)[0].classList.add('rad')
+                track2()
+            } else if (player2 == 100) {
+                win();
+                document.getElementById('result').innerHTML = 'Player2 Won';
+                document.querySelector('img').setAttribute('src', 'Win.gif');
+                document.getElementsByTagName('button')[1].style.display = "none";
+                document.getElementsByTagName('button')[0].style.display = "none";
+            } else {
+                document.getElementsByClassName(`square${player2 + L[N]}`)[0].classList.add('rad')
+                document.getElementsByClassName(`square${player2}`)[0].classList.remove('rad')
+                track2();
+            }
+        }
+        let player1Moves = [];
+        let player2Moves = [];
+
+        function track1() {
+
+            player1Moves.push(`Player1 moved to position ${player1}`);
+            const trackRecord = document.querySelector(".trackRecord");
+            const move = document.createElement("p");
+            move.textContent = `Player1: Moved to ${player1}`;
+            trackRecord.appendChild(move);
+            console.log(trackRecord);
+
+        }
+
+        function track2() {
+
+            player2Moves.push(`Player2 moved to position ${player2}`);
+            const trackRecord = document.querySelector(".trackRecord");
+            const move = document.createElement("p");
+            move.textContent = `Player2: Moved to ${player2}`;
+            trackRecord.appendChild(move);
+        }
+
+        document.getElementById("action").addEventListener("click", function () {
+            let csvContent = "data:text/csv;charset=utf-8,Turn,Player,Position\n";
+
+
+            const maxMoves = Math.max(player1Moves.length, player2Moves.length);
+            for (let i = 0; i < maxMoves; i++) {
+                if (player1Moves[i]) {
+                    csvContent += `${i + 1},Player1,${player1Moves[i].split(" ")[4]}\n`;
+                }
+                if (player2Moves[i]) {
+                    csvContent += `${i + 1},Player2,${player2Moves[i].split(" ")[4]}\n`;
+                }
+            }
+
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "game_history.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+    </script>
+</body>
+
+</html>
